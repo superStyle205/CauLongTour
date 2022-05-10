@@ -18,3 +18,6 @@ Route::get('/', function () {
 Route::get('/summary', function () {
     return view('summary');
 });
+Route::resources([
+	'athletes' => 'AthleteController',
+]);
