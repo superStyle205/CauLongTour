@@ -1,99 +1,96 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>test</title>
+    <style type="text/css">
+        .round {
+        float: left;
+        width: 160px;
+        }
 
-        <title>Laravel</title>
+        .firstTeam,
+        .secondTeam {
+        border-bottom: 1px solid #ccc;
+        position: relative;
+        }
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        .firstSpacer,
+        .secondTeam {
+        border-right: 1px solid #ccc;
+        }
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+        .team {
+        position: absolute;
+        bottom: 1px;
+        left: 1px;
+        }
+    </style>
+</head>
+<body>
+    @php
+    // total round play off
+    $round = 5;
 
-            .full-height {
-                height: 100vh;
-            }
+    // heignt between rows in collumn
+    $heightBase=10;
+    @endphp
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+    <!-- play off -->
+    @for ($i = $round-1; $i >= 0; $i--)
+        <div class="round">
+            @php
+            $match = pow(2, $i);
+            $heightBase *= 2;
+            $heightBase3rd = 30;
+            @endphp
+            @for ($j = 1; $j <= $match; $j++)
+                <div class="matchup">
+                    <div class="firstTeam" style="height:{{ $heightBase - 1 }}px;">
+                        <div class="team">Team 1-->{{ $i }}-{{ $j }}</div>
+                    </div>
+                    <div class="firstSpacer" style="height:{{ $heightBase }}px;">&nbsp;</div>
+                    <div class="secondTeam" style="height:{{ $heightBase - 1 }}px;">
+                        <div class="team">Team 2->-{{ $i }}-{{ $j }}</div>
+                    </div>
+                    <div class="secondSpacer" style="height:{{ $heightBase }}px;">&nbsp;</div>
+                </div>
+            @endfor
+            @if ($i === 0 and $round > 1)
+                <div class="matchup">
+                    <div class="firstTeam" style="height:0px;">
+                        <div class="team">Team 3rd</div>
+                    </div>
+                    <div class="firstSpacer" style="height:{{ $heightBase3rd }}px;">&nbsp;</div>
+                    <div class="secondTeam" style="height:{{ $heightBase3rd - 15 }}px;">
+                        <div class="team">Team 3rd</div>
+                    </div>
+                    <div class="secondSpacer" style="height:{{ $heightBase3rd }}px;">&nbsp;</div>
                 </div>
             @endif
+        </div>
+    @endfor
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel - Louis has just modified!
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+    <!-- 1st and 3th -->
+    @php
+    $heightBase *= 2;
+    @endphp
+    <div class="round">
+        <div class="matchup">
+            <div class="firstTeam" style="height:{{ $heightBase - 1 }}px;">
+                <div class="team">Winner</div>
             </div>
         </div>
-    </body>
+        @if ($round > 1)
+        <div class="matchup">
+            <div class="firstTeam" style="height:{{ $heightBase + 21 }}px;">
+                <div class="team">Winner</div>
+            </div>
+        </div>
+        @endif
+    </div>
+    </div>
+</body>
 </html>
