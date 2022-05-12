@@ -25,7 +25,11 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Gender:</strong>
-            {!! Form::text('gender', null, array('placeholder' => 'Gender','class' => 'form-control')) !!}
+            @if(isset($athlete))
+                {!! Form::select('gender', ['0' => 'male', '1' => 'female'], $athlete->gender, array('placeholder' => '-','class' => 'form-control')) !!}
+            @else
+                {!! Form::select('gender', ['0' => 'male', '1' => 'female'], null, array('placeholder' => '-','class' => 'form-control')) !!}
+            @endif
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
