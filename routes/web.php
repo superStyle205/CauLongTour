@@ -21,3 +21,6 @@ Route::get('/summary', function () {
 Route::resources([
 	'athletes' => 'AthleteController',
 ]);
+Route::resources([
+	'tournaments' => 'TournamentController',
+]);
