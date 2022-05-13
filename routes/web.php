@@ -24,3 +24,6 @@ Route::resources([
 Route::resources([
 	'tournaments' => 'TournamentController',
 ]);
+Route::resources([
+	'forms' => 'FormController',
+]);

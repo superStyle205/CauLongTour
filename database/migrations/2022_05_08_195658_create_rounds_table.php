@@ -13,10 +13,12 @@ class CreateRoundsTable extends Migration
      */
     public function up()
     {
+        /**
+         * a part of competition was stored. 
+         */
         Schema::create('rounds', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            // ten vong dau
             $table->string('round_name', 20)
                     ->nullable($value = false);
 

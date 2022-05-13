@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Athlete extends Model
 {
-    protected $fillable = ['name','old','gender','address','unit','note'];
+    protected $fillable = ['name','age','gender','address','unit','note'];
 }

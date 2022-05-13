@@ -19,7 +19,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Birthday:</strong>
-            {!! Form::date('old', null) !!}
+            {!! Form::date('age', null) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">

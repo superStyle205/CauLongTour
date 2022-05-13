@@ -16,7 +16,6 @@ class CreateTournamentsTable extends Migration
         Schema::create('tournaments', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            // ten vong dau
             $table->string('round_name', 20)
                     ->nullable($value = false);
 

@@ -13,14 +13,16 @@ class CreateFormsTable extends Migration
      */
     public function up()
     {
+        /**
+         * the form of tournament.
+         *  the most common forms of the game are "singles" (with one player per side) and "doubles"
+         */
         Schema::create('forms', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            // ten hinh thuc thi dau
             $table->string('name', 30)
                     ->nullable($value = false);
 
-            // do tuoi
             $table->string('range_old', 30)
                     ->nullable($value = false);                     
 

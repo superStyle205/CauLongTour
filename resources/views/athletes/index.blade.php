@@ -32,7 +32,7 @@
     <tr>
         <td>{{ ++$i }}</td>
         <td>{{ $athlete->name }}</td>
-        <td>{{ $athlete->old }}</td>
+        <td>{{ $athlete->age }}</td>
         <td>{{ $athlete->gender }}</td>
         <td>{{ $athlete->address }}</td>
         <td>{{ $athlete->unit }}</td>

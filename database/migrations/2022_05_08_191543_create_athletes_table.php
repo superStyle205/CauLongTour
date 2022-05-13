@@ -13,30 +13,26 @@ class CreateAthletesTable extends Migration
      */
     public function up()
     {
+            /**
+             * crate table where is stored information of the badminton players (name, age, gender,..)
+             */
         Schema::create('athletes', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            // ten van dong vien
             $table->string('name', 100);
 
-            // tuoi
-            $table->date('old')
+            $table->date('age')
                     ->nullable($value = false);
 
-            // gioi tinh
             $table->binary('gender')
                     ->nullable($value = false);
 
-            // dia chi
             $table->string('address', 500);
             
-            // ten don vi
             $table->string('unit', 100)
                     ->nullable($value = false);;
 
-            // ghi chu thong tin
             $table->string('note', 500);
-
 
             $table->timestamp('created_at')
                     ->default(DB::raw('CURRENT_TIMESTAMP'));

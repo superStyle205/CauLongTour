@@ -42,7 +42,7 @@ class AthleteController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'old' => 'required',
+            'age' => 'required',
             'gender' => 'required',
             'address' => 'required',
             'unit' => 'required',
@@ -50,7 +50,7 @@ class AthleteController extends Controller
 
         Athlete::create($request->all());
         return redirect()->route('athletes.index')
-                ->with('success','Athlete created successfully');
+                ->with('success','The Athlete is created successfully');
     }
 
     /**
@@ -92,7 +92,7 @@ class AthleteController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'old' => 'required',
+            'age' => 'required',
             'gender' => 'required',
             'address' => 'required',
             'unit' => 'required',
@@ -100,7 +100,7 @@ class AthleteController extends Controller
 
         Athlete::find($id)->update($request->all());
         return redirect()->route('athletes.index')
-                ->with('success','Athlete updated successfully');
+                ->with('success','The Athlete is updated successfully');
     }
 
     /**
@@ -114,6 +114,6 @@ class AthleteController extends Controller
     {
         Athlete::find($id)->delete();
         return redirect()->route('athletes.index')
-                ->with('success','Athlete deleted successfully');
+                ->with('success','The Athlete is deleted successfully');
     }
 }
