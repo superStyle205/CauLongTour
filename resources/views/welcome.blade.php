@@ -32,7 +32,7 @@
 <body>
     @php
     // total round play off
-    $round = 5;
+    $round = isset($_GET['round']) ? $_GET['round'] : 4;
 
     // heignt between rows in collumn
     $heightBase=10;
