@@ -1,35 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>test</title>
-    <style type="text/css">
-        .round {
-        float: left;
-        width: 160px;
-        }
-
-        .firstTeam,
-        .secondTeam {
-        border-bottom: 1px solid #ccc;
-        position: relative;
-        }
-
-        .firstSpacer,
-        .secondTeam {
-        border-right: 1px solid #ccc;
-        }
-
-        .team {
-        position: absolute;
-        bottom: 1px;
-        left: 1px;
-        }
-    </style>
-</head>
-<body>
+@extends('layouts.default')
+@section('content')
+<h1 style = "padding-top: 5%;font-weight: bold;"><span class="blue">&lt;</span>Graph of MATCHES<span class="blue">&gt;</span> <span class="yellow">MATCHES</pan></h1>
     @php
     // total round play off
     $round = isset($_GET['round']) ? $_GET['round'] : 4;
@@ -92,5 +63,4 @@
         @endif
     </div>
     </div>
-</body>
-</html>
+@endsection
