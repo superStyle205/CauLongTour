@@ -15,7 +15,7 @@
     </div>
 @endif
 <table class="table table-bordered">
-    <tr>
+    <tr style = "color: white;">
         <th width="80px">No</th>
         <th>Name</th>
         <th>Brithday</th>

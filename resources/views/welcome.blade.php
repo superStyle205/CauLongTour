@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-<h1 style = "padding-top: 5%;font-weight: bold;"><span class="blue">&lt;</span>Graph of MATCHES<span class="blue">&gt;</span> <span class="yellow">MATCHES</pan></h1>
+<h1 style = "padding-top: 5%;font-weight: bold;"><span class="blue">&lt;</span>Graph of MATCHES<span class="blue">&gt;</span> <span class="">MATCHES</pan></h1>
     @php
     // total round play off
     $round = isset($_GET['round']) ? $_GET['round'] : 4;
