@@ -3,7 +3,7 @@
 <h1 style = "padding-top: 5%;font-weight: bold;"><span class="blue">&lt;</span>Graph of MATCHES<span class="blue">&gt;</span> <span class="yellow">MATCHES</pan></h1>
     @php
     // total round play off
-    $round = isset($_GET['round']) ? $_GET['round'] : 4;
+    $round = isset($_GET['round']) ? $_GET['round'] : 6;
 
     // heignt between rows in collumn
     $heightBase=10;
@@ -22,7 +22,7 @@
                     <div class="firstTeam" style="height:{{ $heightBase - 1 }}px;">
                         <div class="team">Team 1-->{{ $i }}-{{ $j }}</div>
                     </div>
-                    <div class="firstSpacer" style="height:{{ $heightBase }}px;">&nbsp;</div>
+                    <div class="firstSpacer" style="height:{{ $heightBase + 2 }}px;">&nbsp;</div>
                     <div class="secondTeam" style="height:{{ $heightBase - 1 }}px;">
                         <div class="team">Team 2->-{{ $i }}-{{ $j }}</div>
                     </div>
@@ -56,7 +56,7 @@
         </div>
         @if ($round > 1)
         <div class="matchup">
-            <div class="firstTeam" style="height:{{ $heightBase + 21 }}px;">
+            <div class="firstTeam" style="height:{{ $heightBase + 25 }}px;">
                 <div class="team">Winner</div>
             </div>
         </div>
