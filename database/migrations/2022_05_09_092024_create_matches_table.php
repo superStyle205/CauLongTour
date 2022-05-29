@@ -28,32 +28,8 @@ class CreateMatchesTable extends Migration
                     ->references('id')
                     ->on('rounds');
 
-            // van dong vien 1
-            $table->unsignedBigInteger('athlete1');
-            $table->foreign('athlete1')
-                    ->references('id')
-                    ->on('athletes');
-
-            // van dong vien 2
-            $table->unsignedBigInteger('athlete2');
-            $table->foreign('athlete2')
-                    ->references('id')
-                    ->on('athletes');
-
-            // nguoi thang
-            $table->unsignedBigInteger('athlete_win');
-            $table->foreign('athlete_win')
-                    ->references('id')
-                    ->on('athletes');
-
-            // ket qua van 1
-            $table->string('result_set_1', 10);
-
-            // ket qua van 2
-            $table->string('result_set_2', 10);
-
-            // ket qua van 3
-            $table->string('result_set_3', 10);
+            // match parent - use for referene match parent
+            $table->unsignedBigInteger('match_parent_id');
 
             // ngay to chuc du kien
             $table->dateTime('plan_start');

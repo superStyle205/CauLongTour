@@ -16,8 +16,7 @@ class CreateTournamentsTable extends Migration
         Schema::create('tournaments', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('round_name', 20)
-                    ->nullable($value = false);
+            $table->string('name', 20);
 
             $table->timestamp('created_at')
                     ->default(DB::raw('CURRENT_TIMESTAMP'));

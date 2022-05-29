@@ -21,16 +21,13 @@ class CreateAthletesTable extends Migration
 
             $table->string('name', 100);
 
-            $table->date('age')
-                    ->nullable($value = false);
+            $table->date('age');
 
-            $table->binary('gender')
-                    ->nullable($value = false);
+            $table->binary('gender');
 
             $table->string('address', 500);
             
-            $table->string('unit', 100)
-                    ->nullable($value = false);;
+            $table->string('unit', 100);
 
             $table->string('note', 500);
 

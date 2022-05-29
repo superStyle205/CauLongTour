@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoundsTable extends Migration
+class CreateAthleteTournamentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,26 @@ class CreateRoundsTable extends Migration
      */
     public function up()
     {
-        /**
-         * a part of competition was stored. 
-         */
-        Schema::create('rounds', function (Blueprint $table) {
+        Schema::create('athlete_tournaments', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('name', 20);
+            // ma giai dau
+            $table->unsignedBigInteger('tournament_id');
+            $table->foreign('tournament_id')
+                    ->references('id')
+                    ->on('tournaments');
+
+            // van dong vien
+            $table->unsignedBigInteger('athlete_id');
+            $table->foreign('athlete_id')
+                    ->references('id')
+                    ->on('athletes');
 
             $table->timestamp('created_at')
                     ->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')
                     ->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
         });
     }
 
@@ -35,6 +43,6 @@ class CreateRoundsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rounds');
+        Schema::dropIfExists('athlete_tournaments');
     }
 }
