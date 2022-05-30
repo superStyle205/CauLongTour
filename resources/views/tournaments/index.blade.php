@@ -25,7 +25,7 @@
     @foreach($tournaments as $tournament)
     <tr>
         <td>{{$tournament -> id}}</td>
-        <td>{{$tournament -> round_name}}</td>
+        <td>{{$tournament -> name}}</td>
         <td>
             <a class="btn btn-primary btn-sm" href="{{ route('tournaments.edit',$tournament->id) }}"><i class="glyphicon glyphicon-pencil"></i></a>
             {!! Form::open([
