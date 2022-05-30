@@ -32,6 +32,10 @@ class CreateMatchesTable extends Migration
             $table->unsignedBigInteger('match_parent_id')
                     ->nullable();
 
+            // group - use for referene match parent
+            $table->string('group')
+                    ->nullable();
+
             // ngay to chuc du kien
             $table->dateTime('plan_start')
                     ->nullable();
