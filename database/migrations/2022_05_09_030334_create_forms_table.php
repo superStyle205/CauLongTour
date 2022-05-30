@@ -20,9 +20,11 @@ class CreateFormsTable extends Migration
         Schema::create('forms', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('name', 30);
+            $table->string('name', 30)
+                    ->nullable(false);
 
-            $table->string('range_old', 30);
+            $table->string('range_old', 30)
+                    ->nullable(false);
 
             $table->timestamp('created_at')
                     ->default(DB::raw('CURRENT_TIMESTAMP'));

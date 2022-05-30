@@ -19,17 +19,23 @@ class CreateAthletesTable extends Migration
         Schema::create('athletes', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('name', 100);
+            $table->string('name', 100)
+                    ->nullable(false);
 
-            $table->date('age');
+            $table->date('age')
+                    ->nullable(false);
 
-            $table->binary('gender');
+            $table->boolean('gender')
+                    ->nullable(false);
 
-            $table->string('address', 500);
+            $table->string('address', 500)
+                    ->nullable();
             
-            $table->string('unit', 100);
+            $table->string('unit', 100)
+                    ->nullable(false);
 
-            $table->string('note', 500);
+            $table->string('note', 500)
+                    ->nullable();
 
             $table->timestamp('created_at')
                     ->default(DB::raw('CURRENT_TIMESTAMP'));

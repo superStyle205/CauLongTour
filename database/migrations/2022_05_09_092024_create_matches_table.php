@@ -29,13 +29,16 @@ class CreateMatchesTable extends Migration
                     ->on('rounds');
 
             // match parent - use for referene match parent
-            $table->unsignedBigInteger('match_parent_id');
+            $table->unsignedBigInteger('match_parent_id')
+                    ->nullable();
 
             // ngay to chuc du kien
-            $table->dateTime('plan_start');
+            $table->dateTime('plan_start')
+                    ->nullable();
 
             // ngay to chuc thuc te
-            $table->dateTime('plant_actual');
+            $table->dateTime('plant_actual')
+                    ->nullable();
 
 
             $table->timestamp('created_at')
