@@ -1,13 +1,9 @@
 @extends('layouts.default')
 @section('content')
-
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Athletes management</h2>
-        </div>
-    </div>
-</div>
+<h1 style = "padding-top: 5%;font-weight: bold;">
+    <span class="">{{strtoupper(request() -> path())}}</pan>
+    <span class="blue">&lt;</span>Management<span class="blue">&gt;</span> 
+</h1>
 
 @if ($message = Session::get('success'))
     <div class="alert alert-success">
