@@ -13,9 +13,7 @@ class CreateFormTournamentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('form_tournaments', function (Blueprint $table) {
-            $table->bigIncrements('id');
-
+        Schema::create('form_tournament', function (Blueprint $table) {
             // ma the loai tran dau
             $table->unsignedBigInteger('form_id');
             $table->foreign('form_id')
@@ -42,6 +40,6 @@ class CreateFormTournamentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('form_tournaments');
+        Schema::dropIfExists('form_tournament');
     }
 }

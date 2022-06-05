@@ -13,9 +13,7 @@ class CreateAthleteTournamentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('athlete_tournaments', function (Blueprint $table) {
-            $table->bigIncrements('id');
-
+        Schema::create('athlete_tournament', function (Blueprint $table) {
             // ma giai dau
             $table->unsignedBigInteger('tournament_id');
             $table->foreign('tournament_id')
@@ -43,6 +41,6 @@ class CreateAthleteTournamentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('athlete_tournaments');
+        Schema::dropIfExists('athlete_tournament');
     }
 }

@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use App\Models\Match;
+use App\Models\MatchDetail;
 
 class MatchsTableSeeder extends Seeder
 {
@@ -20,32 +21,46 @@ class MatchsTableSeeder extends Seeder
             $parentMatchsTmp = $parentMatchs;
             $parentMatchs = [];
             if ($i == 1) {
-                $mathTmp = new Match;
-                $mathTmp->form_id = 1;
-                $mathTmp->round_id = $i;
-                $mathTmp->match_parent_id = null;
-                $mathTmp->plan_start = Carbon::parse('2022-12-12')->toDate();
-                $mathTmp->plant_actual = Carbon::parse('2022-12-12')->toDate();
-                $mathTmp->save();
-                array_push($parentMatchs, $mathTmp->id);
+                $matchTmp = new Match;
+                $matchTmp->form_id = 1;
+                $matchTmp->round_id = $i;
+                $matchTmp->match_parent_id = null;
+                $matchTmp->plan_start = Carbon::parse('2022-12-12')->toDate();
+                $matchTmp->plant_actual = Carbon::parse('2022-12-12')->toDate();
+                $matchTmp->save();
+                array_push($parentMatchs, $matchTmp->id);
             } else {
                 foreach ($parentMatchsTmp as $parentMatchID) {
                     for ($j = 0; $j < 2; $j++) {
-                        $mathTmp = new Match;
-                        $mathTmp->form_id = 1;
-                        $mathTmp->round_id = $i;
-                        $mathTmp->match_parent_id = $parentMatchID;
-                        $mathTmp->plan_start = Carbon::parse('2022-12-12')->toDate();
-                        $mathTmp->plant_actual = Carbon::parse('2022-12-12')->toDate();
-                        $mathTmp->save();
-                        array_push($parentMatchs, $mathTmp->id);
+                        $matchTmp = new Match;
+                        $matchTmp->form_id = 1;
+                        $matchTmp->round_id = $i;
+                        $matchTmp->match_parent_id = $parentMatchID;
+                        $matchTmp->plan_start = Carbon::parse('2022-12-12')->toDate();
+                        $matchTmp->plant_actual = Carbon::parse('2022-12-12')->toDate();
+                        $matchTmp->save();
+                        array_push($parentMatchs, $matchTmp->id);
                     }
                 }
             }
         }
 
+        // Tmp data for 1 match
+        $matchDetailTmp1 = new MatchDetail;
+        $matchDetailTmp1->id = 1;
+        $matchDetailTmp1->match_id = 18;
+        $matchDetailTmp1->athlete_id = 1;
+        $matchDetailTmp1->save();
+
+        $matchDetailTmp2 = new MatchDetail;
+        $matchDetailTmp2->id = 2;
+        $matchDetailTmp2->match_id = 18;
+        $matchDetailTmp2->athlete_id = 3;
+        $matchDetailTmp2->save();
+
         // Template match for round-robin group stage
         $teamNumber = 4;
+        
         
     }
 }

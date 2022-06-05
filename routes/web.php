@@ -18,12 +18,11 @@ Route::get('/', function () {
 Route::get('/summary', function () {
     return view('summary');
 });
+
 Route::resources([
 	'athletes' => 'AthleteController',
+    'tournaments' => 'TournamentController',
+    'forms' => 'FormController'
 ]);
-Route::resources([
-	'tournaments' => 'TournamentController',
-]);
-Route::resources([
-	'forms' => 'FormController',
-]);
+
+Route::get('matchs/{tournament_id}', 'MatchController@index');
