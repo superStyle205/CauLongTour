@@ -25,4 +25,10 @@ Route::resources([
     'forms' => 'FormController'
 ]);
 
-Route::get('matchs/{tournament_id}', 'MatchController@index');
+Route::get('matchs/tour/{tournament_id}/form/{form_id}', 'MatchController@show')
+        ->name('showMatchs');
+
+Route::get('matchDetails/edit/{match_id}', 'MatchDetailController@edit')
+        ->name('matchDetailsEdit');
+Route::post('matchDetails/update/{match_id}', 'MatchDetailController@update')
+        ->name('matchDetailsUpdate');

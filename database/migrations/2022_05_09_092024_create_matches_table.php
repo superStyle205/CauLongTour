@@ -16,6 +16,12 @@ class CreateMatchesTable extends Migration
         Schema::create('matches', function (Blueprint $table) {
             $table->bigIncrements('id');
             
+            // ma the giai dau
+            $table->unsignedBigInteger('tournament_id');
+            $table->foreign('tournament_id')
+                    ->references('id')
+                    ->on('tournaments');
+
             // ma the loai tran dau
             $table->unsignedBigInteger('form_id');
             $table->foreign('form_id')

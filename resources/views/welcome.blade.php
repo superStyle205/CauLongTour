@@ -9,7 +9,8 @@
 $round = isset($_GET['round']) ? $_GET['round'] : 6;
 
 // heignt between rows in collumn
-$heightBase=10;
+$heightBase=25;
+$heightBase3rd = $heightBase*2;
 @endphp
 
 <!-- play off -->
@@ -18,7 +19,6 @@ $heightBase=10;
         @php
         $match = pow(2, $i);
         $heightBase *= 2;
-        $heightBase3rd = 30;
         @endphp
         @for ($j = 1; $j <= $match; $j++)
             <div class="matchup">
@@ -38,7 +38,7 @@ $heightBase=10;
                     <div class="team">Team 3rd</div>
                 </div>
                 <div class="firstSpacer" style="height:{{ $heightBase3rd }}px;">&nbsp;</div>
-                <div class="secondTeam" style="height:{{ $heightBase3rd - 15 }}px;">
+                <div class="secondTeam" style="height:{{ $heightBase3rd }}px;">
                     <div class="team">Team 3rd</div>
                 </div>
                 <div class="secondSpacer" style="height:{{ $heightBase3rd }}px;">&nbsp;</div>
@@ -59,11 +59,10 @@ $heightBase *= 2;
     </div>
     @if ($round > 1)
     <div class="matchup">
-        <div class="firstTeam" style="height:{{ $heightBase + 25 }}px;">
+        <div class="firstTeam" style="height:{{ $heightBase + $heightBase3rd }}px;">
             <div class="team">Winner</div>
         </div>
     </div>
     @endif
-</div>
 </div>
 @endsection

@@ -22,7 +22,7 @@
     <style type="text/css">
     .round {
         float: left;
-        width: 120px;
+        width: 160px;
     }
 
     .firstTeam,

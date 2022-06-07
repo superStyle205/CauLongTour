@@ -28,6 +28,10 @@ class CreateMatchDetailsTable extends Migration
                     ->references('id')
                     ->on('athletes');
 
+            // thuoc doi so may trong tran
+            $table->integer('team')
+                    ->default(0);
+
             // ket qua van 1
             $table->integer('result_set_1')
                     ->default(0);
