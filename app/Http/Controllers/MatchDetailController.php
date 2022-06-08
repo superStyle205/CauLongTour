@@ -71,9 +71,14 @@ class MatchDetailController extends Controller
 
         $athletesInTour = Tournament::where('id', $tournamentID)
                                     ->with('athletes')
-                                    ->get()
-                                    ->first()
-                                    ->athletes;
+                                    ->get();
+
+        $isExistTour = $athletesInTour->count() > 0;
+
+        if ($isExistTour) {
+            $athletesInTour->first()->athletes;
+        }
+
         $athletes = [];
         foreach ($athletesInTour as $athlete) {
             $athletes[$athlete->id] = $athlete->name.' ['.$athlete->unit.']';
@@ -81,7 +86,7 @@ class MatchDetailController extends Controller
         //echo '<pre>';
         //print_r($matchDetails->toArray());
 
-        return view('matchDetails.edit', compact('matchDetails', 'athletes'));
+        return view('matchDetails.edit', compact('matchDetails', 'athletes', 'isExistTour'));
     }
 
     /**

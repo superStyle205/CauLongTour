@@ -13,6 +13,10 @@
         </div>
     </div>
 </div>
+
+@if (!$isExistTour)
+    <h1 style="color: red">!!! Match not exist !!!</h1>
+@else
 {!! Form::open(['method' => 'POST', 'route' => ['matchDetailsUpdate', $matchDetails[0]->match_id]]) !!}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -99,4 +103,5 @@
     // print_r($matchDetails);
 @endphp
 
+@endif
 @endsection

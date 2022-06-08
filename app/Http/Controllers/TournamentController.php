@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tournament;
+//use App\Models\;
 use Illuminate\Http\Request;
 
 class TournamentController extends Controller
@@ -99,8 +100,20 @@ class TournamentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // xoa tour
         Tournament::find($id)->delete();
+
+        // xoa danh sach van dong vien trong tour
+
+
+        // xoa danh sach the loai trong tour
+
+
+        // xoa danh sach tran dau lien quan tour
+
+
+
+
         return redirect()->route('tournaments.index')
                 ->with('success','tournament deleted successfully');
     }

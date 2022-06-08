@@ -21,4 +21,9 @@ class Form extends Model
     {
         return $this->belongsToMany('App\Models\Tournament');
     }
+
+    public function athletes()
+    {
+        return $this->belongsToMany('App\Models\Athlete');
+    }
 }

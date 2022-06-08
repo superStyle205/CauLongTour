@@ -16,8 +16,7 @@ class DatabaseSeeder extends Seeder
             RoundsTableSeeder::class,
             TournamentsTableSeeder::class,
             AthletesTableSeeder::class,
-            AthleteTournamentsTableSeeder::class,
-            FormTournamentsTableSeeder::class,
+            AthleteFormTournamentsTableSeeder::class,
             MatchsTableSeeder::class
         ]);
     }

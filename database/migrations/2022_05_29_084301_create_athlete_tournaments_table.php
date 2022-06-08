@@ -13,12 +13,18 @@ class CreateAthleteTournamentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('athlete_tournament', function (Blueprint $table) {
+        Schema::create('athlete_form_tournament', function (Blueprint $table) {
             // ma giai dau
             $table->unsignedBigInteger('tournament_id');
             $table->foreign('tournament_id')
                     ->references('id')
                     ->on('tournaments');
+
+            // ma the loai
+            $table->unsignedBigInteger('form_id');
+            $table->foreign('form_id')
+                    ->references('id')
+                    ->on('forms');
 
             // van dong vien
             $table->unsignedBigInteger('athlete_id');
@@ -43,6 +49,6 @@ class CreateAthleteTournamentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('athlete_tournament');
+        Schema::dropIfExists('athlete_form_tournament');
     }
 }

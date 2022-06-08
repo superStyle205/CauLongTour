@@ -17,6 +17,11 @@ class Athlete extends Model
         return $this->belongsToMany('App\Models\Tournament');
     }
 
+    public function forms()
+    {
+        return $this->belongsToMany('App\Models\Form');
+    }
+
     public function match_details()
     {
         return $this->hasMany('App\Models\MatchDetail');
