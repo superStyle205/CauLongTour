@@ -41,7 +41,7 @@ class TournamentController extends Controller
     {
         //
         $this->validate($request, [
-            'round_name' => 'required',
+            'name' => 'required',
         ]);
         Tournament::create($request->all());
         return redirect()->route('tournaments.index')
@@ -83,7 +83,7 @@ class TournamentController extends Controller
     {
         //
         $this->validate($request, [
-            'round_name' => 'required',
+            'name' => 'required',
         ]);
 
         Tournament::find($id)->update($request->all());
