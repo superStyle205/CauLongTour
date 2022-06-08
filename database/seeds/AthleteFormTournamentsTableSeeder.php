@@ -11,7 +11,7 @@ class AthleteFormTournamentsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('athlete_form_tournament')->insert([
+        DB::table('athlete_form_tournaments')->insert([
             ['form_id' => 1, 'tournament_id' => 1, 'athlete_id' => 1],
             ['form_id' => 1, 'tournament_id' => 1, 'athlete_id' => 2],
             ['form_id' => 1, 'tournament_id' => 1, 'athlete_id' => 3],

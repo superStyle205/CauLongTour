@@ -12,14 +12,9 @@ class Athlete extends Model
 
     protected $fillable = ['name','age','gender','address','unit','note'];
 
-    public function tournaments()
+    public function athleteFormTournaments()
     {
-        return $this->belongsToMany('App\Models\Tournament');
-    }
-
-    public function forms()
-    {
-        return $this->belongsToMany('App\Models\Form');
+        return $this->hasMany('App\Models\AthleteFormTournament');
     }
 
     public function match_details()

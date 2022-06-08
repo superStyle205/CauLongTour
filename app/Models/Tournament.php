@@ -12,13 +12,8 @@ class Tournament extends Model
 
     protected $fillable = ['name'];
 
-    public function athletes()
+    public function athleteFormTournaments()
     {
-        return $this->belongsToMany('App\Models\Athlete');
-    }
-
-    public function forms()
-    {
-        return $this->belongsToMany('App\Models\Form');
+        return $this->hasMany('App\Models\AthleteFormTournament');
     }
 }

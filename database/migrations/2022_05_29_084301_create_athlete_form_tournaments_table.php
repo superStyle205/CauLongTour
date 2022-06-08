@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAthleteTournamentsTable extends Migration
+class CreateAthleteFormTournamentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAthleteTournamentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('athlete_form_tournament', function (Blueprint $table) {
+        Schema::create('athlete_form_tournaments', function (Blueprint $table) {
             // ma giai dau
             $table->unsignedBigInteger('tournament_id');
             $table->foreign('tournament_id')
@@ -49,6 +49,6 @@ class CreateAthleteTournamentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('athlete_form_tournament');
+        Schema::dropIfExists('athlete_form_tournaments');
     }
 }

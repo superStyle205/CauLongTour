@@ -17,13 +17,9 @@ class Form extends Model
         return $this->hasMany('App\Models\Match');
     }
 
-    public function tournaments()
+    public function athleteFormTournaments()
     {
-        return $this->belongsToMany('App\Models\Tournament');
+        return $this->hasMany('App\Models\AthleteFormTournament');
     }
 
-    public function athletes()
-    {
-        return $this->belongsToMany('App\Models\Athlete');
-    }
 }
