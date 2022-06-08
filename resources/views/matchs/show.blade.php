@@ -24,7 +24,7 @@
             $matchDetails = $matchTree[$i][$j]['match_details'];
             $matchDetailsSize = count($matchDetails);
         @endphp
-        @if($matchDetailsSize == 2)
+        @if ($matchDetailsSize == 2)
             @php
                 $objTeam1 = $matchDetails[0];
                 $objTeam2 = $matchDetails[1];
@@ -43,21 +43,36 @@
                 $team2 .= '<br/>- '.$objTeam22['athlete']['name'].' ('.$objTeam21['finalResult'].')';
             @endphp
         @else
-            @php
-                $team1 = 'setup';
-                $team2 = 'setup';
-            @endphp
+            @if ($i > 0)
+                @php
+                    $team1 = 'view detail';
+                    $team2 = 'view detail';
+                @endphp
+            @else
+                @php
+                    $team1 = 'setup';
+                    $team2 = 'setup';
+                @endphp
+            @endif
         @endif
         <div class="matchup">
             <div class="firstTeam" style="height:{{ $heightBase - 1 }}px;">
                 <div class="team">
+                @if ($i == 0 and $matchDetailsSize == 0)
+                    <a href="{{ route('matchDetailsCreate', $matchTree[$i][$j]['id']) }}">{!! $team1 !!}</a>
+                @else
                     <a href="{{ route('matchDetailsEdit', $matchTree[$i][$j]['id']) }}">{!! $team1 !!}</a>
+                @endif
                 </div>
             </div>
             <div class="firstSpacer" style="height:{{ $heightBase + 2 }}px;">&nbsp;</div>
             <div class="secondTeam" style="height:{{ $heightBase - 1 }}px;">
                 <div class="team">
+                @if ($i == 0 and $matchDetailsSize == 0)
+                    <a href="{{ route('matchDetailsCreate', $matchTree[$i][$j]['id']) }}">{!! $team2 !!}</a>
+                @else
                     <a href="{{ route('matchDetailsEdit', $matchTree[$i][$j]['id']) }}">{!! $team2 !!}</a>
+                @endif
                 </div>
             </div>
             <div class="secondSpacer" style="height:{{ $heightBase }}px;">&nbsp;</div>

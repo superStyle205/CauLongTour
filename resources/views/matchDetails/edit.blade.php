@@ -13,7 +13,6 @@
         </div>
     </div>
 </div>
-@if (count($matchDetails) > 0)
 {!! Form::open(['method' => 'POST', 'route' => ['matchDetailsUpdate', $matchDetails[0]->match_id]]) !!}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -45,14 +44,18 @@
                     </td>
                     @endif
                 </tr>
-                @if (count($matchDetails) == 2 or count($matchDetails) == 4)
                 <tr>
                     <td><strong>Set 1</strong></td>
                     <td>
                         {!! Form::text('team1set1', $matchDetails[0]->result_set_1, array('placeholder' => 'set 1','class' => 'form-control')) !!}
                     </td>
                     <td>
+                        @if (count($matchDetails) == 2)
                         {!! Form::text('team2set1', $matchDetails[1]->result_set_1, array('placeholder' => 'set 1','class' => 'form-control')) !!}
+                        @endif
+                        @if (count($matchDetails) == 4)
+                        {!! Form::text('team2set1', $matchDetails[2]->result_set_1, array('placeholder' => 'set 1','class' => 'form-control')) !!}
+                        @endif
                     </td>
                 </tr>
                 <tr>
@@ -61,7 +64,12 @@
                         {!! Form::text('team1set2', $matchDetails[0]->result_set_2, array('placeholder' => 'set 2','class' => 'form-control')) !!}
                     </td>
                     <td>
+                        @if (count($matchDetails) == 2)
                         {!! Form::text('team2set2', $matchDetails[1]->result_set_2, array('placeholder' => 'set 2','class' => 'form-control')) !!}
+                        @endif
+                        @if (count($matchDetails) == 4)
+                        {!! Form::text('team2set2', $matchDetails[2]->result_set_2, array('placeholder' => 'set 2','class' => 'form-control')) !!}
+                        @endif
                     </td>
                 </tr>
                 <tr>
@@ -70,10 +78,14 @@
                         {!! Form::text('team1set3', $matchDetails[0]->result_set_3, array('placeholder' => 'set 3','class' => 'form-control')) !!}
                     </td>
                     <td>
+                        @if (count($matchDetails) == 2)
                         {!! Form::text('team2set3', $matchDetails[1]->result_set_3, array('placeholder' => 'set 3','class' => 'form-control')) !!}
+                        @endif
+                        @if (count($matchDetails) == 4)
+                        {!! Form::text('team2set3', $matchDetails[2]->result_set_3, array('placeholder' => 'set 3','class' => 'form-control')) !!}
+                        @endif
                     </td>
                 </tr>
-                @endif
             </table>
         </div>
     </div>
@@ -82,9 +94,6 @@
     </div>
 </div>
 {!! Form::close() !!}
-@else
-// todo
-@endif
 @php
     // echo '<pre>';
     // print_r($matchDetails);

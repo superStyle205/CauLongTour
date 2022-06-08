@@ -30,5 +30,7 @@ Route::get('matchs/tour/{tournament_id}/form/{form_id}', 'MatchController@show')
 
 Route::get('matchDetails/edit/{match_id}', 'MatchDetailController@edit')
         ->name('matchDetailsEdit');
+Route::get('matchDetails/create/{match_id}', 'MatchDetailController@create')
+        ->name('matchDetailsCreate');
 Route::post('matchDetails/update/{match_id}', 'MatchDetailController@update')
         ->name('matchDetailsUpdate');
