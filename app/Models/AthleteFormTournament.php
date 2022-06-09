@@ -10,17 +10,17 @@ class AthleteFormTournament extends Model
 
     use SoftDeletes;
 
-    public function tournaments()
+    public function tournament()
     {
-        return $this->belongsTo('App\Models\Tourname');
+        return $this->belongsTo('App\Models\Tournament');
     }
 
-    public function forms()
+    public function form()
     {
         return $this->belongsTo('App\Models\Form');
     }
 
-    public function athletes()
+    public function athlete()
     {
         return $this->belongsTo('App\Models\Athlete');
     }
