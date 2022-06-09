@@ -16,13 +16,14 @@ class TournamentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $tournaments = Tournament::all();
+        $tournaments = Tournament::latest()->paginate(10);
         // $haha = null;
         // echo $tournaments;
-        return view('tournaments.index', compact('tournaments'));
+        return view('tournaments.index', compact('tournaments'))
+                    ->with('i', ($request->input('page', 1) - 1) * 10);
     }
 
     /**

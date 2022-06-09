@@ -15,7 +15,7 @@ class MatchsTableSeeder extends Seeder
     public function run()
     {
         // Template match for play off
-        $round = 5;
+        $round = 3;
         $parentMatchs = [];
         for ($i = 1; $i <= $round; $i++) {
             $parentMatchsTmp = $parentMatchs;
@@ -47,15 +47,13 @@ class MatchsTableSeeder extends Seeder
             }
         }
 
+        /*
         // Tmp data for 1 match
         $matchDetailTmp1 = new MatchDetail;
         $matchDetailTmp1->id = 4;
         $matchDetailTmp1->match_id = 18;
         $matchDetailTmp1->athlete_id = 1;
         $matchDetailTmp1->team = 1;
-        $matchDetailTmp1->result_set_1 = 21;
-        $matchDetailTmp1->result_set_2 = 3;
-        $matchDetailTmp1->result_set_3 = 4;
         $matchDetailTmp1->save();
 
         $matchDetailTmp3 = new MatchDetail;
@@ -63,9 +61,6 @@ class MatchsTableSeeder extends Seeder
         $matchDetailTmp3->match_id = 18;
         $matchDetailTmp3->athlete_id = 4;
         $matchDetailTmp3->team = 2;
-        $matchDetailTmp3->result_set_1 = 5;
-        $matchDetailTmp3->result_set_2 = 21;
-        $matchDetailTmp3->result_set_3 = 21;
         $matchDetailTmp3->save();
 
         $matchDetailTmp2 = new MatchDetail;
@@ -73,9 +68,6 @@ class MatchsTableSeeder extends Seeder
         $matchDetailTmp2->match_id = 18;
         $matchDetailTmp2->athlete_id = 5;
         $matchDetailTmp2->team = 2;
-        $matchDetailTmp2->result_set_1 = 5;
-        $matchDetailTmp2->result_set_2 = 21;
-        $matchDetailTmp2->result_set_3 = 21;
         $matchDetailTmp2->save();
 
         $matchDetailTmp4 = new MatchDetail;
@@ -83,12 +75,96 @@ class MatchsTableSeeder extends Seeder
         $matchDetailTmp4->match_id = 18;
         $matchDetailTmp4->athlete_id = 2;
         $matchDetailTmp4->team = 1;
-        $matchDetailTmp4->result_set_1 = 21;
-        $matchDetailTmp4->result_set_2 = 3;
-        $matchDetailTmp4->result_set_3 = 4;
         $matchDetailTmp4->save();
 
-        // Template match for round-robin group stage
+        // -------------------------------
+        $matchDetailTmp5 = new MatchDetail;
+        $matchDetailTmp5->id = 8;
+        $matchDetailTmp5->match_id = 19;
+        $matchDetailTmp5->athlete_id = 7;
+        $matchDetailTmp5->team = 1;
+        $matchDetailTmp5->save();
+
+        $matchDetailTmp6 = new MatchDetail;
+        $matchDetailTmp6->id = 7;
+        $matchDetailTmp6->match_id = 19;
+        $matchDetailTmp6->athlete_id = 8;
+        $matchDetailTmp6->team = 2;
+        $matchDetailTmp6->save();
+
+        $matchDetailTmp7 = new MatchDetail;
+        $matchDetailTmp7->id = 5;
+        $matchDetailTmp7->match_id = 19;
+        $matchDetailTmp7->athlete_id = 9;
+        $matchDetailTmp7->team = 2;
+        $matchDetailTmp7->save();
+
+        $matchDetailTmp8 = new MatchDetail;
+        $matchDetailTmp8->id = 6;
+        $matchDetailTmp8->match_id = 19;
+        $matchDetailTmp8->athlete_id = 6;
+        $matchDetailTmp8->team = 1;
+        $matchDetailTmp8->save();
+        */
+
+        
         $teamNumber = 4;
+        $matchDetailTmp1 = new MatchDetail;
+        $matchDetailTmp1->id = 4;
+        $matchDetailTmp1->match_id = 7;
+        $matchDetailTmp1->athlete_id = 1;
+        $matchDetailTmp1->team = 1;
+        $matchDetailTmp1->save();
+
+        $matchDetailTmp3 = new MatchDetail;
+        $matchDetailTmp3->id = 2;
+        $matchDetailTmp3->match_id = 7;
+        $matchDetailTmp3->athlete_id = 4;
+        $matchDetailTmp3->team = 2;
+        $matchDetailTmp3->save();
+
+        $matchDetailTmp2 = new MatchDetail;
+        $matchDetailTmp2->id = 1;
+        $matchDetailTmp2->match_id = 5;
+        $matchDetailTmp2->athlete_id = 5;
+        $matchDetailTmp2->team = 2;
+        $matchDetailTmp2->save();
+
+        $matchDetailTmp4 = new MatchDetail;
+        $matchDetailTmp4->id = 3;
+        $matchDetailTmp4->match_id = 5;
+        $matchDetailTmp4->athlete_id = 2;
+        $matchDetailTmp4->team = 1;
+        $matchDetailTmp4->save();
+
+        // -------------------------------
+        $matchDetailTmp5 = new MatchDetail;
+        $matchDetailTmp5->id = 8;
+        $matchDetailTmp5->match_id = 4;
+        $matchDetailTmp5->athlete_id = 7;
+        $matchDetailTmp5->team = 1;
+        $matchDetailTmp5->save();
+
+        $matchDetailTmp6 = new MatchDetail;
+        $matchDetailTmp6->id = 7;
+        $matchDetailTmp6->match_id = 4;
+        $matchDetailTmp6->athlete_id = 8;
+        $matchDetailTmp6->team = 2;
+        $matchDetailTmp6->save();
+
+        $matchDetailTmp7 = new MatchDetail;
+        $matchDetailTmp7->id = 5;
+        $matchDetailTmp7->match_id = 6;
+        $matchDetailTmp7->athlete_id = 9;
+        $matchDetailTmp7->team = 2;
+        $matchDetailTmp7->save();
+
+        $matchDetailTmp8 = new MatchDetail;
+        $matchDetailTmp8->id = 6;
+        $matchDetailTmp8->match_id = 6;
+        $matchDetailTmp8->athlete_id = 6;
+        $matchDetailTmp8->team = 1;
+        $matchDetailTmp8->save();
+        
     }
 }

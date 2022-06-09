@@ -12,10 +12,11 @@ class FormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $forms = Form::all();
-        return view('forms.index',compact('forms'));
+        $forms = Form::latest()->paginate(10);
+        return view('forms.index',compact('forms'))
+                    ->with('i', ($request->input('page', 1) - 1) * 10);
     }
 
     /**

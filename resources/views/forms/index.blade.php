@@ -21,7 +21,7 @@
     </tr>
     @foreach($forms as $form)
     <tr>
-        <td>{{$form -> id}}</td>
+        <td>{{ ++$i }}</td>
         <td>{{$form -> name}}</td>
         <td>{{$form -> range_old}}</td>
         <td>
@@ -42,5 +42,6 @@
     </tr>
     @endforeach
 </table>
+{!! $forms->render() !!}
 
 @endsection

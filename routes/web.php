@@ -11,9 +11,12 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+Route::get('/', 'TourManagerController@index');
 
 Route::get('/summary', function () {
     return view('summary');
@@ -25,6 +28,10 @@ Route::resources([
         'forms' => 'FormController',
         'tournament-details' => 'AthleteFormTournamentController'
 ]);
+
+
+
+
 
 Route::get('tournament-details/show/{tournament_id}','AthleteFormTournamentController@getTournamentDetails')
         -> name("details");

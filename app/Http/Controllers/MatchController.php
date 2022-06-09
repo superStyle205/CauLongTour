@@ -28,17 +28,18 @@ class MatchController extends Controller
         if (count($match_details) == 2) {
             $team1 = $match_details[0];
             $team2 = $match_details[1];
-        } else if (count($match_details) == 4) {
+        } elseif (count($match_details) == 4) {
             $team1 = $match_details[0];
             $team12 = $match_details[1];
             $team2 = $match_details[2];
             $team22 = $match_details[3];
-        } else {
-            // no handle
+        } elseif (count($match_details) == 1) {
+            return array($match_details[0]);
         }
 
         $point1 = 0;
         $point2 = 0;
+
 
         for ($i = 1; $i < 4; $i++) {
             if ($team1['result_set_'.$i] > $team2['result_set_'.$i]) {
@@ -50,6 +51,9 @@ class MatchController extends Controller
                 // no handle
             }
         }
+
+        //echo '<pre>';
+        //print_r($match_details);
 
         $matchDetailsWithFinalResult = [];
         if (count($match_details) == 2) {
@@ -131,7 +135,7 @@ class MatchController extends Controller
                                                 ->toArray();
 
                 $match_details = $matchDetailsTmp;
-                
+
                 // get final result of match
                 if (count($match_details) > 0) {
                     $match_details = $this->getStatusMatch($match_details);

@@ -13,10 +13,16 @@
         </div>
     </div>
 </div>
-
-@if (!$isExistTour)
-    <h1 style="color: red">!!! Match not exist !!!</h1>
-@else
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 {!! Form::open(['method' => 'POST', 'route' => ['matchDetailsUpdate', $matchDetails[0]->match_id]]) !!}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -24,28 +30,33 @@
             <table class="table table-bordered">
                 <tr style = "color: white;">
                     <th width="80px"></th>
-                    <th>Team 1</th>
-                    <th>Team 2</th>
+                    <th>[Team1]&nbsp;{{ $matchDetails[0]->athlete->unit }}</th>
+                    @if (count($matchDetails) == 2)
+                        <th>[Team2]&nbsp;{{ $matchDetails[1]->athlete->unit }}</th>
+                    @endif
+                    @if (count($matchDetails) == 4)
+                        <th>[Team2]&nbsp;{{ $matchDetails[2]->athlete->unit }}</th>
+                    @endif
                 </tr>
                 <tr>
                     <td><strong>Athlete</strong></td>
                     @if (count($matchDetails) == 2)
-                    <td>
-                        {!! Form::select('team1athlete1', $athletes, $matchDetails[0]->athlete->id, array('placeholder' => '-','class' => 'form-control')) !!}
-                    </td>
-                    <td>
-                        {!! Form::select('team2athlete1', $athletes, $matchDetails[1]->athlete->id, array('placeholder' => '-','class' => 'form-control')) !!}
-                    </td>
+                        <td>
+                            {{ $matchDetails[0]->athlete->name }}
+                        </td>
+                        <td>
+                            {{ $matchDetails[1]->athlete->name }}
+                        </td>
                     @endif
                     @if (count($matchDetails) == 4)
-                    <td>
-                        {!! Form::select('team1athlete1', $athletes, $matchDetails[0]->athlete->id, array('placeholder' => '-','class' => 'form-control')) !!}
-                        {!! Form::select('team1athlete2', $athletes, $matchDetails[1]->athlete->id, array('placeholder' => '-','class' => 'form-control')) !!}
-                    </td>
-                    <td>
-                        {!! Form::select('team2athlete1', $athletes, $matchDetails[2]->athlete->id, array('placeholder' => '-','class' => 'form-control')) !!}
-                        {!! Form::select('team2athlete2', $athletes, $matchDetails[3]->athlete->id, array('placeholder' => '-','class' => 'form-control')) !!}
-                    </td>
+                        <td>
+                            -&nbsp;{{ $matchDetails[0]->athlete->name }}<br/>
+                            -&nbsp;{{ $matchDetails[1]->athlete->name }}
+                        </td>
+                        <td>
+                            -&nbsp;{{ $matchDetails[2]->athlete->name }}<br/>
+                            -&nbsp;{{ $matchDetails[3]->athlete->name }}
+                        </td>
                     @endif
                 </tr>
                 <tr>
@@ -99,9 +110,7 @@
 </div>
 {!! Form::close() !!}
 @php
-    // echo '<pre>';
-    // print_r($matchDetails);
+echo "<pre>";
+print_r($matchDetails->toArray());
 @endphp
-
-@endif
 @endsection
