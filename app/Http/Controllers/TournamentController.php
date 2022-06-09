@@ -6,6 +6,9 @@ use App\Models\Tournament;
 //use App\Models\;
 use Illuminate\Http\Request;
 
+use App\Models\Form;
+use App\Models\Athlete;
+
 class TournamentController extends Controller
 {
     /**
@@ -17,6 +20,7 @@ class TournamentController extends Controller
     {
         //
         $tournaments = Tournament::all();
+        // $haha = null;
         // echo $tournaments;
         return view('tournaments.index', compact('tournaments'));
     }
@@ -57,9 +61,23 @@ class TournamentController extends Controller
      */
     public function show($id)
     {
+        echo $id;
         //
         // return view('tournaments.show',['tournament' => Tournament::find($id)]);
     }
+
+    public function getTournamentDetails($id)
+    {
+        //get all form id -> list
+        $listOfForm = Form::all();
+        // get all athlete id - >  list
+        $listOfAthlete = Athlete::all();
+        // echo $id;
+        $tournament = Tournament::find($id);
+
+        return view('tournaments.tournamentdetails',compact('listOfForm','listOfAthlete','tournament'));
+    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -80,6 +98,7 @@ class TournamentController extends Controller
      * @param  \App\Models\Tournament  $tournament
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         //

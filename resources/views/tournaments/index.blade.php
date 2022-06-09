@@ -23,6 +23,7 @@
         <td>{{$tournament -> id}}</td>
         <td>{{$tournament -> name}}</td>
         <td>
+            <a class="btn btn-info btn-sm" href="{{ route('details',$tournament->id) }}"><i class="glyphicon glyphicon-th-large"></i></a>
             <a class="btn btn-primary btn-sm" href="{{ route('tournaments.edit',$tournament->id) }}"><i class="glyphicon glyphicon-pencil"></i></a>
             {!! Form::open([
                 'method' => 'DELETE',

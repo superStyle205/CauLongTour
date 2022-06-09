@@ -20,10 +20,14 @@ Route::get('/summary', function () {
 });
 
 Route::resources([
-	'athletes' => 'AthleteController',
-    'tournaments' => 'TournamentController',
-    'forms' => 'FormController'
+        'athletes' => 'AthleteController',
+        'tournaments' => 'TournamentController',
+        'forms' => 'FormController',
+        'tournament-details' => 'AthleteFormTournamentController'
 ]);
+
+Route::get('tournament-details/show/{tournament_id}','AthleteFormTournamentController@getTournamentDetails')
+        -> name("details");
 
 Route::get('matchs/tour/{tournament_id}/form/{form_id}', 'MatchController@show')
         ->name('showMatchs');
