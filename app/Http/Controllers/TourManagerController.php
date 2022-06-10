@@ -15,17 +15,6 @@ class TourManagerController extends Controller
      */
     public function index(Request $request)
     {
-        /*
-        $listTourForm = AthleteFormTournament::select('tournament_id', 'form_id')
-                ->distinct()
-                ->where([
-                            ['tournament_id', '!=', null],
-                            ['form_id', '!=', null],
-                        ])
-                ->with('tournament','form')
-                ->orderBy('tournament_id', 'desc')
-                ->paginate(10);
-        */
         $listTourForm = AthleteFormTournament::select('tournament_id', 'form_id')
                                         ->where([
                                                     ['tournament_id', '!=', null],

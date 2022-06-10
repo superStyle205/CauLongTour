@@ -94,22 +94,13 @@ class MatchDetailController extends Controller
             $resultCheckPoint[$j-1] = $this->validatePoint($resultSet['team1']['set'.$j], $resultSet['team2']['set'.$j]);
         }
 
-        /*
-        if ($resultCheckPoint[0] == "finish" && $resultCheckPoint[1] == "finish") {
-            if ((!(($resultSet['team1']['set1'] > $resultSet['team2']['set1']
-                    && $resultSet['team1']['set2'] > $resultSet['team2']['set2'])
-                    || ($resultSet['team2']['set1'] > $resultSet['team1']['set1']
-                    && $resultSet['team2']['set2'] > $resultSet['team1']['set2'])))
-                ||($resultSet['team1']['set3'] != 0 || $resultSet['team2']['set3'] != 0)) {
-                throw ValidationException::withMessages(['my_bad' => 'Input value of result set is incorrect']);
-            }
-        } else {
+        if (in_array("inValid", $resultCheckPoint) || in_array("inProgress", $resultCheckPoint)) {
             $setError = in_array("inValid", $resultCheckPoint) ? (array_search("inValid", $resultCheckPoint) + 1)
-                            : (array_search("inProgress", $resultCheckPoint) + 1);
+                                : (array_search("inProgress", $resultCheckPoint) + 1);
             throw ValidationException::withMessages(['my_bad' => 'Input value of result set '
-                                                                    .$setError
-                                                                    .' is incorrect']);
-        }*/
+                                                                        .$setError
+                                                                        .' is incorrect']);
+        }
 
         // update result point for match detail current
         $matchDetailsTeam = MatchDetail::where('match_id', $match_id)->get();

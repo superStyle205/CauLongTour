@@ -109,8 +109,10 @@
     </div>
 </div>
 {!! Form::close() !!}
+{{--
 @php
 echo "<pre>";
 print_r($matchDetails->toArray());
 @endphp
+--}}
 @endsection

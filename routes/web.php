@@ -34,7 +34,7 @@ Route::resources([
 
 
 Route::get('tournament-details/show/{tournament_id}','AthleteFormTournamentController@getTournamentDetails')
-        -> name("details");
+         -> name("details");
 
 Route::get('matchs/tour/{tournament_id}/form/{form_id}', 'MatchController@show')
         ->name('showMatchs');
@@ -45,3 +45,12 @@ Route::get('matchDetails/create/{match_id}', 'MatchDetailController@create')
         ->name('matchDetailsCreate');
 Route::post('matchDetails/update/{match_id}', 'MatchDetailController@update')
         ->name('matchDetailsUpdate');
+
+Route::get('tourDetails/show/{tournament_id}', 'TournamentDetailController@index')
+        ->name('tourDetails');
+Route::post('tourDetails/update/tour/{tournament_id}', 'TournamentDetailController@addForm')
+        ->name('addFormToTour');
+Route::post('tourDetails/add/tour/{tournament_id}', 'TournamentDetailController@addAthlete')
+        ->name('addAthleteToTour');
+Route::post('tourDetails/buildMatch/tour/{tournament_id}', 'TournamentDetailController@buildMatch')
+        ->name('buildMatchToTour');

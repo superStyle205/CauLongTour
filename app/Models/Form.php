@@ -22,4 +22,9 @@ class Form extends Model
         return $this->hasMany('App\Models\AthleteFormTournament');
     }
 
+    public function formTournaments()
+    {
+        return $this->hasMany('App\Models\FormTournament');
+    }
+
 }

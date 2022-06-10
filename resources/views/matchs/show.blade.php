@@ -151,14 +151,18 @@ $finalMatch = $matchTree[count($matchTree) -1];
                 $winner = "?? Winer ??";
             }
         } elseif ($finalMatchDetailsSize == 4) {
-                $objTeam11 = $finalMatchDetails[0];
-                $objTeam12 = $finalMatchDetails[1];
-                $objTeam21 = $finalMatchDetails[2];
-                $objTeam22 = $finalMatchDetails[3];
+            $objTeam11 = $finalMatchDetails[0];
+            $objTeam12 = $finalMatchDetails[1];
+            $objTeam21 = $finalMatchDetails[2];
+            $objTeam22 = $finalMatchDetails[3];
+            if ($objTeam11['finalResult'] == 0 && $objTeam21['finalResult'] == 0) {
+                $winner = "?? Winer ??";
+            } else {
                 $winner = ($objTeam11['finalResult'] > $objTeam21['finalResult']
-                            && ($objTeam11['finalResult'] != 0 || $objTeam21['finalResult'] !=0)) 
-                        ? '- '.$objTeam11['athlete']['name'].'<br/>'.$objTeam12['athlete']['name']
-                        : '- '.$objTeam21['athlete']['name'].'<br/>'.$objTeam22['athlete']['name'];
+                        && ($objTeam11['finalResult'] != 0 || $objTeam21['finalResult'] !=0)) 
+                    ? '- '.$objTeam11['athlete']['name'].'<br/>- '.$objTeam12['athlete']['name']
+                    : '- '.$objTeam21['athlete']['name'].'<br/>- '.$objTeam22['athlete']['name'];
+            }
         } else {
             $winner = "?? Winer ??";
         }

@@ -11,7 +11,7 @@
         <th>Tournament name</th>
         <th>Form</th>
         <th>Range age</th>
-        <th width="140px" class="text-center">
+        <th width="" class="text-center">
         </th>
     </tr>
 
