@@ -222,7 +222,7 @@ class TournamentDetailController extends Controller
                 $matchDetailTmp2->athlete_id = $athleteArr[$j+1]['athlete_id'];
                 $matchDetailTmp2->team = 2;
                 $matchDetailTmp2->save();
-                $j++;
+                $j+=2;
             }
         }
 
