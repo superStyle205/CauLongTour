@@ -13,9 +13,9 @@ class TournamentsTableSeeder extends Seeder
     public function run()
     {
         DB::table('tournaments')->insert([
-            ['id' => 1, 'name' => 'Galaxy Cup'],
-            ['id' => 2, 'name' => 'TOTTRI Cup'],
-            ['id' => 3, 'name' => 'Jupyter Happy']
+            ['name' => 'Galaxy Cup'],
+            ['name' => 'TOTTRI Cup'],
+            ['name' => 'Jupyter Happy']
         ]);
     }
 }
